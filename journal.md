@@ -1,0 +1,80 @@
+# my-arch-stuff_journal
+
+- [my-arch-stuff\_journal](#my-arch-stuff_journal)
+    - [20231025\_0810: Well... I've done a bunch of stuff 'till here... I'll try to describe:](#20231025_0810-well-ive-done-a-bunch-of-stuff-till-here-ill-try-to-describe)
+    - [20231025\_1522: Continuing the description:](#20231025_1522-continuing-the-description)
+    - [20231025\_1542: After reboot with the USB stick burned:](#20231025_1542-after-reboot-with-the-usb-stick-burned)
+
+
+### 20231025_0810: Well... I've done a bunch of stuff 'till here... I'll try to describe:
+- I've entered in archlinux oficial [page](https://archlinux.org/);
+- Downloaded, from one of [BR mirrors](https://linorg.usp.br/archlinux/iso/), the "iso" file;
+  - Doing it from a terminal, it will be something like: 
+    ```zsh
+    $ wget https://linorg.usp.br/archlinux/iso/2023.10.14/archlinux-2023.10.14-x86_64.iso
+    ```
+  - Then, checking the downloaded iso file:
+    ```zsh
+    // checksum with b2
+    $ wget https://linorg.usp.br/archlinux/iso/2023.10.14/b2sums.txt
+    $ b2sum -c b2sums.txt
+    archlinux-2023.10.14-x86_64.iso: OK
+    // failed checksums
+    b2sum: archlinux-x86_64.iso: No such file or directory
+    archlinux-x86_64.iso: FAILED open or read
+    b2sum: archlinux-bootstrap-2023.10.14-x86_64.tar.gz: No such file or directory
+    archlinux-bootstrap-2023.10.14-x86_64.tar.gz: FAILED open or read
+    b2sum: archlinux-bootstrap-x86_64.tar.gz: No such file or directory
+    archlinux-bootstrap-x86_64.tar.gz: FAILED open or read
+    b2sum: WARNING: 3 listed files could not be read*
+
+    // checksum with sha256
+    $ wget https://linorg.usp.br/archlinux/iso/2023.10.14/sha256sums.txt
+    $ sha256sum -c sha256sums.txt
+    archlinux-2023.10.14-x86_64.iso: OK
+    // failed checksums
+    sha256sum: archlinux-x86_64.iso: No such file or directory
+    archlinux-x86_64.iso: FAILED open or read
+    sha256sum: archlinux-bootstrap-2023.10.14-x86_64.tar.gz: No such file or directory
+    archlinux-bootstrap-2023.10.14-x86_64.tar.gz: FAILED open or read
+    sha256sum: archlinux-bootstrap-x86_64.tar.gz: No such file or directory
+    archlinux-bootstrap-x86_64.tar.gz: FAILED open or read
+    sha256sum: WARNING: 3 listed files could not be read
+    ```
+  - To be honest, I've got curios with the other "checksum"s, so gived a try on the PGP signature check, to do so, I've used **[sq](https://man.archlinux.org/man/sq.1#DESCRIPTION)** - "A command-line frontend for Sequoia, an implementation of OpenPGP".
+    ```zsh
+    // getting the signature file from iso:
+    $ wget https://linorg.usp.br/archlinux/iso/2023.10.14/archlinux-2023.10.14-x86_64.iso.sig
+    
+    // looking up for certificates in a "Web Key Directory" and wrinting it to a FILE:
+    $ sq wkd get pierre@archlinux.org -o release-key.pgp
+    
+    // verifying the signature:
+    $ sq verify --signer-file release-key.pgp --detached archlinux-2023.10.14-x86_64.iso.sig archlinux-2023.10.14-x86_64.iso
+    ```
+
+### 20231025_1522: Continuing the description:
+- After download and check the integrity of the arch "iso" file, time to burn a USB stick with it;
+- After some googling, I went through 3 steps (1) erase all data from the USV stick, (2) format it, (3) copy the iso file:
+  1. To erase all data, I did:
+    ```zsh
+    $ sudo fdisk /dev/sdb
+    Command (m for help): p => to list all partitions
+    Command (m for help): d => to delete all partitions
+    Command (m for help): n => to add a new partition, following the next steps to add a unique, full and primary partition
+    Command (m for help): w => to write the changes
+    ```
+  2. To format it: `$ sudo mkfs.vfat -F 32 /dev/sdb1 -n "archlinux"`
+  3. And finally to copy iso file into the USB stick: `$ sudo dd bs=4M if=archlinux-2023.10.14-x86_64.iso of=/dev/sdb status=progress oflag=sync`
+
+
+### 20231025_1542: After reboot with the USB stick burned:
+- Connect to internet using "iwctl" (Internet wireless control utility): `iwctl` (in my case)
+  - `[iwd]# device list`
+  - `[iwd]# station <device-name> connect <Wi-Fi>`
+  - `[iwd]# password...`
+- Then, I pretty much follow this tutorial: [Instale o Arch Linux sem SOFRER! - Tutorial COMPLETO (e rápido, sério!)](https://www.youtube.com/watch?v=_nDqRToEtpo);
+- The options I've chosen (in my particular case) was:
+  - aaa
+  - bbb
+  - ccc
