@@ -4,13 +4,13 @@
     - [20231025\_0810: Well... I've done a bunch of stuff 'till here... I'll try to describe:](#20231025_0810-well-ive-done-a-bunch-of-stuff-till-here-ill-try-to-describe)
     - [20231025\_1522: Continuing the description:](#20231025_1522-continuing-the-description)
     - [20231025\_1542: After reboot with the USB stick burned:](#20231025_1542-after-reboot-with-the-usb-stick-burned)
-    - [20231025\_1553: First login:](#20231025_1553-first-login)
+    - [20231026\_0637: First login:](#20231026_0637-first-login)
 
 
 ### 20231025_0810: Well... I've done a bunch of stuff 'till here... I'll try to describe:
-- I've entered in archlinux oficial [page](https://archlinux.org/);
-- Downloaded, from one of [BR mirrors](https://linorg.usp.br/archlinux/iso/), the "iso" file;
-  - Doing it from a terminal, it will be something like: 
+- I've entered in archlinux oficial [page](https://archlinux.org/).
+- Downloaded, from one of [BR mirrors](https://linorg.usp.br/archlinux/iso/), the "iso" file.
+  - Doing it from a terminal, it will be something like:
     ```zsh
     $ wget https://linorg.usp.br/archlinux/iso/2023.10.14/archlinux-2023.10.14-x86_64.iso
     ```
@@ -55,8 +55,8 @@
     ```
 
 ### 20231025_1522: Continuing the description:
-- After download and check the integrity of the arch "iso" file, time to burn a USB stick with it;
-- After some googling, I went through 3 steps (1) erase all data from the USV stick, (2) format it, (3) copy the iso file:
+- After download and check the integrity of the arch "iso" file, time to burn a USB stick with it.
+- After some googling, I went through 3 steps (1) erase all data from the USV stick, (2) format it, (3) copy the iso file.
   1. To erase all data, I did:
     ```zsh
     $ sudo fdisk /dev/sdb
@@ -65,17 +65,17 @@
     Command (m for help): n => to add a new partition, following the next steps to add a unique, full and primary partition
     Command (m for help): w => to write the changes
     ```
-  2. To format it: `$ sudo mkfs.vfat -F 32 /dev/sdb1 -n "archlinux"`
-  3. And finally to copy iso file into the USB stick: `$ sudo dd bs=4M if=archlinux-2023.10.14-x86_64.iso of=/dev/sdb status=progress oflag=sync`
+  2. To format it: `$ sudo mkfs.vfat -F 32 /dev/sdb1 -n "archlinux"` .
+  3. And finally to copy iso file into the USB stick: `$ sudo dd bs=4M if=archlinux-2023.10.14-x86_64.iso of=/dev/sdb status=progress oflag=sync` .
 
 
 ### 20231025_1542: After reboot with the USB stick burned:
-- Connect to internet using "iwctl" (Internet wireless control utility): `iwctl` (in my case)
+- Connect to internet using "iwctl" (Internet wireless control utility): `iwctl` (in my case).
   - `[iwd]# device list`
   - `[iwd]# station <device-name> connect <Wi-Fi>`
   - `[iwd]# password...`
-- Then, I pretty much follow this tutorial: [Instale o Arch Linux sem SOFRER! - Tutorial COMPLETO (e rápido, sério!)](https://www.youtube.com/watch?v=_nDqRToEtpo);
-- The options I've chosen (in my particular case) was:
+- Then, I pretty much follow this tutorial: [Instale o Arch Linux sem SOFRER! - Tutorial COMPLETO (e rápido, sério!)](https://www.youtube.com/watch?v=_nDqRToEtpo).
+- The options I've chosen (in my particular case) was.
 
   | Parameter                 | Value                         | Detail                                             |
   | ------------------------- | ----------------------------- | -------------------------------------------------- |
@@ -100,7 +100,22 @@
   | Network configuration     | Use NetworkManager ...        | N/A                                                |
   | Timezone                  | America/Sao_Paulo             | N/A                                                |
   | Automatic time sync (NTP) | True                          | N/A                                                |
-  
+
 - For me, the trick here was the graphics driver, I've tested couple of combinations of profiles and graphics drivers. As I'm using an old laptop here, a VAIO from 2013, I've struggled a bit to make the HDMI out work.
 
-### 20231025_1553: First login:
+### 20231026_0637: First login:
+- Changed the configs from "/etc/pacman.conf".
+  !["/etc/pacman.conf"](images/pacman_conf.png)
+- Intalled [yay](https://github.com/Jguer/yay).
+  ```zsh
+  $ cd /tmp
+  $ mkdir yay
+  $ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+  ```
+- Then, installed Chrome and remove Firefox.
+- My "objective" here is to have a minimalist GUI interface for Arch but with some small pleasures. To achieve that I wouldn't like to have more than 500 packages installed... Considering that in my Arch@WSL2 I have less than 200 packages.
+- At this point I'm with:
+  !["neofetch_1"](images/neofetch_20231026_1.png)
+- Then, I pretty much follow this tutorial: [O Melhor Setup Dev com Arch e WSL2](https://www.youtube.com/watch?v=sjrW74Hx5Po&t=2328s) --- from zsh installation: https://www.youtube.com/watch?v=sjrW74Hx5Po&t=1988s.
+- And, end up with:
+  !["neofetch_2"](images/neofetch_20231026_2.png)
