@@ -4,6 +4,7 @@
     - [20231025\_0810: Well... I've done a bunch of stuff 'till here... I'll try to describe:](#20231025_0810-well-ive-done-a-bunch-of-stuff-till-here-ill-try-to-describe)
     - [20231025\_1522: Continuing the description:](#20231025_1522-continuing-the-description)
     - [20231025\_1542: After reboot with the USB stick burned:](#20231025_1542-after-reboot-with-the-usb-stick-burned)
+    - [20231025\_1553: First login:](#20231025_1553-first-login)
 
 
 ### 20231025_0810: Well... I've done a bunch of stuff 'till here... I'll try to describe:
@@ -75,6 +76,31 @@
   - `[iwd]# password...`
 - Then, I pretty much follow this tutorial: [Instale o Arch Linux sem SOFRER! - Tutorial COMPLETO (e rápido, sério!)](https://www.youtube.com/watch?v=_nDqRToEtpo);
 - The options I've chosen (in my particular case) was:
-  - aaa
-  - bbb
-  - ccc
+
+  | Parameter                 | Value                         | Detail                                             |
+  | ------------------------- | ----------------------------- | -------------------------------------------------- |
+  | Archintall language       | English (100%)                | N/A                                                |
+  | Mirrors                   | Defined                       | Mirror regions: Brazil                             |
+  | Locales                   | Defined                       | Keyboard layout: us                                |
+  | -                         | -                             | Locale language: en_US                             |
+  | -                         | -                             | Locale encoding: UTF-8                             |
+  | Disk configuration        | Use a best-effort default ... | N/A                                                |
+  | Disk encryption           | -                             | N/A                                                |
+  | Bootloader                | Systemd-boot                  | N/A                                                |
+  | Swap                      | False                         | N/A                                                |
+  | Hostname                  | VAIO-2013                     | N/A                                                |
+  | Root password             | -                             | N/A                                                |
+  | User account              | 1 User(s)                     | Configured to use "sudo" (included in group WHELL) |
+  | Profile                   | Desktop                       | Profile: Cinnamon                                  |
+  | Profile                   | -                             | Graphics driver: Intel (open-source)               |
+  | Profile                   | -                             | Greeter: lightdm-gtk-greeter                       |
+  | Audio                     | Pipewire                      | N/A                                                |
+  | Kernel                    | linux                         | N/A                                                |
+  | Additional packages       | Defined                       | neofetch firefox                                   |
+  | Network configuration     | Use NetworkManager ...        | N/A                                                |
+  | Timezone                  | America/Sao_Paulo             | N/A                                                |
+  | Automatic time sync (NTP) | True                          | N/A                                                |
+  
+- For me, the trick here was the graphics driver, I've tested couple of combinations of profiles and graphics drivers. As I'm using an old laptop here, a VAIO from 2013, I've struggled a bit to make the HDMI out work.
+
+### 20231025_1553: First login:
