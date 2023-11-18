@@ -112,7 +112,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -217,22 +217,21 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  -- <<< CUSTOM: adding markdown plugin >>>
   {
+    -- <<< CUSTOM: adding markdown preview plugin >>>
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
-  }
+  },
 
-}, {})
-
-
+  -- <<< start CUSTOM: adding other plugin
+  --
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
- require('kickstart.plugins.autoformat')
- require('kickstart.plugins.debug')
+  -- require('kickstart.plugins.autoformat'),
+  -- require('kickstart.plugins.debug'),
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
@@ -240,9 +239,11 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  -- { import = 'custom.plugins' }
+  --
+  -- end CUSTOM >>>
 
---
+}, {})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -308,6 +309,11 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- <<< CUSTOM: adding key map for :Format, Explore >>>
+vim.keymap.set('n', '<leader>f', ':Format<Cr>')
+vim.keymap.set('n', '<leader>E', ':Explore<Cr>')
+
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -364,7 +370,7 @@ local function live_grep_git_root()
   local git_root = find_git_root()
   if git_root then
     require('telescope.builtin').live_grep({
-      search_dirs = {git_root},
+      search_dirs = { git_root },
     })
   end
 end
