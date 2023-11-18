@@ -217,13 +217,16 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  {
-    -- <<< CUSTOM: adding markdown preview plugin >>>
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
-  },
+  -- <<< CUSTOM: adding markdown preview plugin >>>
+  {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
+
+  -- {
+  -- <<< CUSTOM: adding markdown preview plugin >>>
+  --   "iamcco/markdown-preview.nvim",
+  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --   ft = { "markdown" },
+  --   build = function() vim.fn["mkdp#util#install"]() end,
+  -- },
 
   -- <<< start CUSTOM: adding other plugin
   --
