@@ -21,10 +21,10 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 #
 # -------------------------------------------------------------------------------------------------
 # neofetch
-zsh -c 'neofetch'
+#zsh -c 'neofetch'
 # export PATH (custom PATH)
 # GOBIN
-export PATH="$PATH:$HOME/.asdf/installs/golang/1.21.3/packages/bin/"
+#export PATH="$PATH:$HOME/.asdf/installs/golang/1.21.3/packages/bin/"
 
 # -------------------------------------------------------------------------------------------------
 #
@@ -60,6 +60,9 @@ bindkey '^[[3~' delete-char
 # exa
 alias exa="exa --icons -laa"
 
+# vim opens nvim
+alias vim="nvim"
+
 # git
 alias gigh="echo 'initiating git config for Git Hub account...'
 \git init 
@@ -70,6 +73,15 @@ alias gs="git status"
 alias gsi="git status --ignored"
 alias gl="git log"
 alias glo="git log --oneline"
+
+# fzf and cd
+alias fdcd="cd \$(fd -t d | fzf)"
+alias facd="cd \$(fd -H | fzf)"
+
+# fzf and open vim
+alias ffnv="nvim \$(fd | fzf)"
+alias fdnv="nvim \$(fd -t d | fzf)"
+alias fanv="nvim \$(fd -H | fzf)"
 
 # -------------------------------------------------------------------------------------------------
 # ASDF
