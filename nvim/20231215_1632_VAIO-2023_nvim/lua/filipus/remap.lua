@@ -32,7 +32,7 @@ vim.keymap.set('n', '<leader>Y', [["+Y]], { desc = '[Y]ank line to clipboard' })
 vim.keymap.set('n', '<leader>S', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]],
   { desc = '[S]earch and replace the current word' })
 
-vim.keymap.set('n', '<leader>pu', [[:e ~/.config/nvim/lua/filipus/packer.lua<cr>:so<cr>:PackerSync<cr><c-o>]],
+vim.keymap.set('n', '<leader>pu', [[:e ~/.config/nvim/lua/filipus/packer.lua<cr>:so<cr>:PackerSync<cr>]],
   { desc = '[U]pdate' })
 
 
