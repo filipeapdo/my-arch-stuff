@@ -125,3 +125,8 @@ $ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.g
 - Then, I pretty much follow this tutorial: [O Melhor Setup Dev com Arch e WSL2](https://www.youtube.com/watch?v=sjrW74Hx5Po&t=2328s) --- from zsh installation: https://www.youtube.com/watch?v=sjrW74Hx5Po&t=1988s.
 - And, end up with:
 !["neofetch_2"](images/neofetch_20231026_2.png)
+
+### 20240306_0814: Desktop Env, by my own:
+- I went through archinstall again, but this time using the "minimal" profile.
+- So, intead go through the (First login section)[journal.md#202310260637-first-login], I did the follow...
+
