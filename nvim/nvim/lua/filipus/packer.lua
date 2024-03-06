@@ -95,6 +95,17 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Mkdnflow, a "full" markdown plugin (for Wikis)
+  -- TO-DO : move to a config file
+  use({
+    'jakewvincent/mkdnflow.nvim',
+    config = function()
+      require('mkdnflow').setup({
+        -- Config goes here; leave blank for defaults
+      })
+    end
+  })
+
 
 
   -- TO-DO : checkout this plugins...
