@@ -128,5 +128,19 @@ $ pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.g
 
 ### 20240306_0814: Desktop Env, by my own:
 - I went through archinstall again, but this time using the "minimal" profile.
-- So, intead go through the (First login section)[journal.md#202310260637-first-login], I did the follow...
+- So, instead go through the [First login section](#202310260637-first-login), I did the follow...
+- Installed vim, git.
+- Inslalled asdf.
+- Installed python and golang (with asdf).
+- Changed the configs of pacman and installed yay as the Fisrt login section.
+- Now, building into my Desktop Env...
+    - Installed xorg packages
+    - Installed the Display Manager LightDM and the Greeter's packages
+    - Installed the Desktop Env: cinnamon
+    - Enabled the lightdm service
+- At this point I've 497 packages, and a "fucntional" Desktop Env. - what is a bit frustrating, 'cause it's more than the "archinstall" aproach.
+- Anyways, I've learned more about X servers, displays managers, and desktop environments...
+
+
+
 
