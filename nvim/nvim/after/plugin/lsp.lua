@@ -7,6 +7,23 @@
 -- for LSP related items. It sets the mode, buffer and description for us each time.
 
 
+-- Setup 'Conform' formatter
+require('conform').setup({
+  formatters_by_ft = {
+    lua = { 'stylua' },
+    -- Conform will run multiple formatters sequentially
+    python = { 'isort', 'black' },
+    -- Use a sub-list to run only the first available formatter
+    javascript = { { 'prettierd', 'prettier' } },
+  },
+  format_on_save = {
+    -- These options will be passed to conform.format()
+    timeout_ms = 500,
+    lsp_fallback = true,
+  },
+})
+
+
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
@@ -35,6 +52,14 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
   nmap('<leader>Fo', ':Format<cr>', '[F]ormat [o]nly')
   nmap('<leader>Fs', ':Format<cr>:w<cr>', '[F]ormat and [s]ave')
+
+  -- Format on save using Conform
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*',
+    callback = function(args)
+      require('conform').format({ bufnr = args.buf })
+    end,
+  })
 end
 
 

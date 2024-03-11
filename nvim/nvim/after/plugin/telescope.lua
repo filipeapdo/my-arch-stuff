@@ -74,8 +74,11 @@ vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = '[F]ind [G]it [F]i
 vim.keymap.set('n', '<leader>fG', ':LiveGrepGitRoot<cr>', { desc = '[F]ind by RipGrep on [G]it Root' })
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>fh', ':Telescope find_files hidden=ture<cr>', { desc = '[F]ind [H]idden [F]iles' })
+vim.keymap.set('n', '<leader>fi', ':Telescope find_files hidden=ture no_ignore=true<cr>',
+  { desc = '[F]ind [I]gnored [F]iles' })
 
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
+vim.keymap.set('n', '<leader>fH', builtin.help_tags, { desc = '[F]ind [H]elp' })
 
 vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
 

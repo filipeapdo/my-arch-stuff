@@ -11,8 +11,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Other keymaps
 vim.keymap.set('n', '<leader>E', vim.cmd.Ex, { desc = 'Go to [E]xplorer' })
 vim.keymap.set('n', '<leader>mp', vim.cmd.Glow, { desc = 'Open Glow, markdown [P]review' })
-vim.keymap.set('n', '<leader>mft', vim.cmd.MkdnTableFormat, { desc = '[F]ormat markdown [T]able' })
-
+vim.keymap.set('n', '<leader>mtf', vim.cmd.MkdnTableFormat, { desc = '[F]ormat markdown table' })
 
 -- ThePrimeagen ones
 vim.keymap.set('v', 'J', [[:m '>+1<cr>gv=gv]], { desc = 'move highlighted text down' })
@@ -41,5 +40,5 @@ vim.keymap.set('n', '<leader>pu', [[:e ~/.config/nvim/lua/filipus/packer.lua<cr>
 require('which-key').register {
   ['<leader>m'] = { name = '[M]arkdown', _ = 'which_key_ignore' },
   ['<leader>p'] = { name = '[P]acker', _ = 'which_key_ignore' },
-  ['<leader>mf'] = { name = '[F]ormat', _ = 'which_key_ignore' }
+  ['<leader>mt'] = { name = '[T]able', _ = 'which_key_ignore' }
 }
