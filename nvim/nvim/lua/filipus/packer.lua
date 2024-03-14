@@ -18,8 +18,8 @@ return require('packer').startup(function(use)
 
     -- Telescope
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.4',
-        -- or                            , branch = '0.1.x',
+        -- need manual update on "tag"
+        'nvim-telescope/telescope.nvim', tag = '0.1.6',
         requires = {
             { 'nvim-lua/plenary.nvim' },
             {
@@ -64,6 +64,9 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- Fugitive (Git)
+    use 'tpope/vim-fugitive'
+
     -- "gc" to comment visual regions/lines
     -- TO-DO : move to a config file
     use {
@@ -97,21 +100,18 @@ return require('packer').startup(function(use)
     }
 
     -- Mkdnflow, a "full" markdown (for Wikis)
-    use {
+    --[[ use {
         'jakewvincent/mkdnflow.nvim',
         config = function()
             require('mkdnflow').setup({
                 -- Config goes here; leave blank for defaults
             })
         end
-    }
-
-    -- Fugitive (Git)
-    use 'tpope/vim-fugitive'
+    } ]]
 
 
 
     -- TO-DO : checkout this plugins...
-    -- Harpoon : 		    use('theprimeagen/harpoon')
-    -- Undo Tree : 		  use('mbbill/undotree')
+    -- Harpoon : use('theprimeagen/harpoon')
+    -- Undo Tree : use('mbbill/undotree')
 end)
