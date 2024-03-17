@@ -64,6 +64,9 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- Undo Tree
+    use 'mbbill/undotree'
+
     -- Fugitive (Git)
     use 'tpope/vim-fugitive'
 
@@ -113,5 +116,4 @@ return require('packer').startup(function(use)
 
     -- TO-DO : checkout this plugins...
     -- Harpoon : use('theprimeagen/harpoon')
-    -- Undo Tree : use('mbbill/undotree')
 end)

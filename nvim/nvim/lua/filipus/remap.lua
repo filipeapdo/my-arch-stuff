@@ -10,7 +10,11 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 
 -- Other keymaps
 vim.keymap.set('n', '<leader>E', vim.cmd.Ex, { desc = 'Go to [E]xplorer' })
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Go to [E]xplorer' })
+vim.keymap.set('n', '<leader>G', vim.cmd.Git, { desc = 'Open [G]it interface' })
 vim.keymap.set('n', '<leader>mp', vim.cmd.Glow, { desc = 'Open Glow, markdown [P]review' })
+vim.keymap.set('n', '<leader>mt', '[[:!markdown-toc -i %:p<cr><cr>]]',
+    { desc = 'Insert/Update markdown [T]OC, need <!-- toc --> comment into file' })
 -- vim.keymap.set('n', '<leader>mtf', vim.cmd.MkdnTableFormat, { desc = '[F]ormat markdown table' })
 
 
