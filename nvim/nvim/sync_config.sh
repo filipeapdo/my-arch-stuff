@@ -9,7 +9,7 @@ git status --ignored
 
 { set +x; } &> /dev/null
 
-read -p " 🔴 Commit ALL changes? (Y/N): " confirm && [[ $confirm == [yY] ]] || exit 1
+read -p " 🛑 Commit ALL changes? (Y/N): " confirm && [[ $confirm == [yY] ]] || exit 1
 
 set -x
 
