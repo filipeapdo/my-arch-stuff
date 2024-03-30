@@ -20,7 +20,7 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '>|', eol = '↵' }
+vim.opt.listchars = { tab = '▸\\', eol = '↵', space = '·' }
 
 
 -- Leader keymap
