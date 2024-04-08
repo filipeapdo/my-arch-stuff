@@ -8,9 +8,11 @@ require('neodev').setup()
 require('conform').setup({
     formatters_by_ft = {
         -- Conform will run the formatter
+        html = { { 'prettier' } },
         markdown = { { 'prettier' } },
         --[[ lua = { 'stylua' }, ]]
         -- Conform will run multiple formatters sequentially
+        go = { 'goimports', 'gofumpt' },
         --[[ python = { 'isort', 'black' }, ]]
         -- Use a sub-list to run only the first available formatter
         javascript = { { 'prettierd', 'prettier' } },
