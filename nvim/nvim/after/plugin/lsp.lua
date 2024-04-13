@@ -10,6 +10,7 @@ require('conform').setup({
         -- Conform will run the formatter
         html = { { 'prettier' } },
         markdown = { { 'prettier' } },
+        sql = { { 'sqlfmt' } },
         --[[ lua = { 'stylua' }, ]]
         -- Conform will run multiple formatters sequentially
         go = { 'goimports', 'gofumpt' },

@@ -57,13 +57,18 @@ bindkey '^[[3~' delete-char
 # -------------------------------------------------------------------------------------------------
 ### Aliases
 # -------------------------------------------------------------------------------------------------
+# go (packages)
+alias air="\$(go env GOPATH)/bin/air"
+alias sqlc="\$(go env GOPATH)/bin/sqlc"
+alias goose="\$(go env GOPATH)/bin/goose"
+
 # exa
 alias exa="exa --icons -laa"
 
 # vim opens nvim
 alias vim="nvim"
 
-
+# git
 alias gigh="echo 'initiating git config for Git Hub account...'
 \git init 
 \git config user.name filipeapdo 
