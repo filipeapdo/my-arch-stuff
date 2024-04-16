@@ -17,17 +17,6 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # -------------------------------------------------------------------------------------------------
 #
-# +++ Startup Commands +++
-#
-# -------------------------------------------------------------------------------------------------
-# neofetch
-#zsh -c 'neofetch'
-# export PATH (custom PATH)
-# GOBIN
-#export PATH="$PATH:$HOME/.asdf/installs/golang/1.21.3/packages/bin/"
-
-# -------------------------------------------------------------------------------------------------
-#
 # +++ Custom Configs +++
 #
 # -------------------------------------------------------------------------------------------------
@@ -54,13 +43,18 @@ bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
 
+# ^[[1~^[[4~^
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[4~' end-of-line
+
 # -------------------------------------------------------------------------------------------------
 ### Aliases
 # -------------------------------------------------------------------------------------------------
 # go (packages)
-alias air="\$(go env GOPATH)/bin/air"
-alias sqlc="\$(go env GOPATH)/bin/sqlc"
-alias goose="\$(go env GOPATH)/bin/goose"
+#alias air="\$(go env GOPATH)/bin/air"
+#alias sqlc="\$(go env GOPATH)/bin/sqlc"
+#alias goose="\$(go env GOPATH)/bin/goose"
+#alias templ="\$(go env GOPATH)/bin/templ"
 
 # exa
 alias exa="exa --icons -laa"
@@ -105,5 +99,11 @@ autoload -Uz compinit && compinit
 # -------------------------------------------------------------------------------------------------
 # Docker
 # -------------------------------------------------------------------------------------------------
+
+# -------------------------------------------------------------------------------------------------
+# PATH
+# -------------------------------------------------------------------------------------------------
+# go packages' binaries
+export PATH=$(go env GOPATH)/bin:$PATH
 
 # ---------------------------------------------- eof ----------------------------------------------

@@ -11,9 +11,11 @@ require('conform').setup({
         html = { { 'prettier' } },
         markdown = { { 'prettier' } },
         sql = { { 'sqlfmt' } },
+        -- templ = { { 'templ' } },
         --[[ lua = { 'stylua' }, ]]
         -- Conform will run multiple formatters sequentially
         go = { 'goimports', 'gofumpt' },
+        -- templ = { 'goimports', 'gofumpt' },
         --[[ python = { 'isort', 'black' }, ]]
         -- Use a sub-list to run only the first available formatter
         javascript = { { 'prettierd', 'prettier' } },
@@ -93,6 +95,7 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
     function(server_name)
+        vim.filetype.add({ extension = { templ = "templ" } })
         require('lspconfig')[server_name].setup {
             capabilities = capabilities,
             on_attach = on_attach,
