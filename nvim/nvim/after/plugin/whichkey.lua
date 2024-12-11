@@ -18,4 +18,5 @@ require('which-key').add {
     -- [[ from remap.lua ]]
     { '<leader>m', group = '[M]arkdonw' },
     { '<leader>p', group = '[P]acker' },
+    { '<leader>t', group = ' Nvim[T]ree' },
 }

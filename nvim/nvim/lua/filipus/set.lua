@@ -1,5 +1,19 @@
+-- disable netrw at the very start of your init.lua
+-- to use nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+
+-- leader keymap
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+
 -- [[ SETS ]]
 
+
+-- -- optionally enable 24-bit colour
+-- vim.opt.termguicolors = true
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -22,8 +36,3 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.list = true
 vim.opt.listchars = { tab = '▸\\', eol = '↵', space = '·' }
-
-
--- Leader keymap
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '

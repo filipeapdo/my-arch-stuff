@@ -8,8 +8,11 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open float
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 
+-- NvimTree keymaps
+vim.keymap.set('n', '<leader>tt', vim.cmd.NvimTreeToggle, { desc = '[T]oggle' })
+
 -- Other keymaps
-vim.keymap.set('n', '<leader>E', vim.cmd.Ex, { desc = 'Go to [E]xplorer' })
+-- vim.keymap.set('n', '<leader>E', vim.cmd.Ex, { desc = 'Go to [E]xplorer' })
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = '[U]ndo Tree' })
 vim.keymap.set('n', '<leader>G', vim.cmd.Git, { desc = 'Open [G]it interface' })
 vim.keymap.set('n', '<leader>mp', vim.cmd.Glow, { desc = 'Open Glow, markdown [P]review' })

@@ -102,6 +102,10 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- tree files + icons
+    use 'nvim-tree/nvim-tree.lua'
+    use 'nvim-tree/nvim-web-devicons'
+
     -- Mkdnflow, a "full" markdown (for Wikis)
     --[[ use {
         'jakewvincent/mkdnflow.nvim',
